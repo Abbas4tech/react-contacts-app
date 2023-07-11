@@ -1,19 +1,52 @@
 import React from "react";
+import { IContact } from "../Store/slices/contacts-slice";
+import { useNavigate } from "react-router-dom";
 
-const ContactCard = () => {
+const ContactCard = ({
+  contact,
+  setContactToEdit,
+  setContactIdToDelete,
+}: {
+  contact: IContact;
+  setContactToEdit: (contact: IContact) => void;
+  setContactIdToDelete: (id: number) => void;
+}) => {
+  const navigate = useNavigate();
+
+  const openContactDetails = () => {
+    navigate(`/contacts/details/${contact.id}`);
+  };
+
   return (
-    <div className="card card-side bg-base-100 shadow-xl">
+    <div
+      className="card card-side bg-base-100 shadow-xl cursor-pointer"
+      onClick={openContactDetails}
+    >
       <div role="figure" className="flex rounded-md">
-        <img
-          src="https://daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg"
-          alt="Movie"
-        />
+        <img src={contact.imageUrl} alt={contact.name} />
       </div>
       <div className="card-body">
-        <h2 className="card-title">New movie is released!</h2>
-        <p>Click the button to watch on Jetflix app.</p>
+        <h2 className="card-title">{contact.name}</h2>
+        <p>{contact.phone}</p>
         <div className="card-actions justify-end">
-          <button className="btn btn-primary">Watch</button>
+          <button
+            className="btn btn-info btn-sm"
+            onClick={(e) => {
+              e.stopPropagation();
+              setContactToEdit(contact);
+            }}
+          >
+            Edit
+          </button>
+          <button
+            className="btn btn-error btn-sm"
+            onClick={(e) => {
+              e.stopPropagation();
+              setContactIdToDelete(contact.id);
+            }}
+          >
+            Delete
+          </button>
         </div>
       </div>
     </div>
