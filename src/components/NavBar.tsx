@@ -1,9 +1,5 @@
 import React from "react";
-import {
-  ContactType,
-  IContact,
-  contactActions,
-} from "../Store/slices/contacts-slice";
+import { contactActions } from "../Store/slices/contacts-slice";
 import { Route } from "../routes/routes";
 import { useDispatch } from "react-redux";
 import { useLocation } from "react-router-dom";
@@ -12,16 +8,6 @@ const NavBar = () => {
 
   const dispatch = useDispatch();
   const createNewContact = () => {
-    // const newContact: IContact = {
-    //   id: Math.random(),
-    //   name: "Abbas k abbu Tauqeer",
-    //   address: "Ghr",
-    //   imageUrl:
-    //     "https://daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg",
-    //   phone: "8879998633",
-    //   type: ContactType.HOME,
-    // };
-
     dispatch(contactActions.openDialog(true));
   };
   return (
@@ -45,15 +31,17 @@ const NavBar = () => {
           </label>
         </div>
         <div className="flex-1">
-          <p className="btn btn-ghost normal-case text-xl">Contacts App</p>
+          <p className="btn btn-ghost normal-case text-2xl text-base-content">
+            Contacts App
+          </p>
         </div>
       </div>
       {pathname === Route.CONTACTS && (
         <button
-          className="btn btn-active btn-accent"
+          className="btn btn-sm md:btn-md btn-active btn-accent"
           onClick={createNewContact}
         >
-          New Contact
+          + New
         </button>
       )}
     </header>

@@ -1,5 +1,5 @@
 import React from "react";
-import { IContact } from "../Store/slices/contacts-slice";
+import { ContactType, IContact } from "../Store/slices/contacts-slice";
 import { useNavigate } from "react-router-dom";
 
 const ContactCard = ({
@@ -22,15 +22,32 @@ const ContactCard = ({
       className="card card-side bg-base-100 shadow-xl cursor-pointer"
       onClick={openContactDetails}
     >
-      <div role="figure" className="flex rounded-md">
-        <img src={contact.imageUrl} alt={contact.name} />
+      <div role="figure" className="rounded-md flex max-w-[10rem]">
+        <img loading="lazy" src={contact.imageUrl} alt={contact.name} />
       </div>
-      <div className="card-body">
-        <h2 className="card-title">{contact.name}</h2>
-        <p>{contact.phone}</p>
-        <div className="card-actions justify-end">
+      <div className="p-4 flex flex-col justify-between">
+        <div>
+          <h2 className="font-semibold my-2 text-medium md:text-lg">
+            {contact.name}
+          </h2>
+          <p className="my-2">Phone : {contact.phone}</p>
+          <p>Address : {contact.address}</p>
+          <p className="my-2">
+            Status :{" "}
+            <span
+              className={`${
+                contact.type === ContactType.HOME
+                  ? "text-red-500"
+                  : "text-blue-500"
+              }`}
+            >
+              {contact.type}
+            </span>
+          </p>
+        </div>
+        <div className="card-actions gap-4 mt-2 justify-end">
           <button
-            className="btn btn-info btn-sm"
+            className="btn btn-info btn-sm md:btn-md"
             onClick={(e) => {
               e.stopPropagation();
               setContactToEdit(contact);
@@ -39,7 +56,7 @@ const ContactCard = ({
             Edit
           </button>
           <button
-            className="btn btn-error btn-sm"
+            className="btn btn-error btn-sm md:btn-md"
             onClick={(e) => {
               e.stopPropagation();
               setContactIdToDelete(contact.id);

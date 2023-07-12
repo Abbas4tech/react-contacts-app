@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
+import { randomAvatarUrlGenerator } from "../../utils/utils";
 
 export enum ContactType {
   HOME = "Home",
@@ -32,7 +33,12 @@ export const contactSlice = createSlice({
       state.isDialogOpen = action.payload;
     },
     addedContact: (state, action: PayloadAction<IContact>) => {
-      state.contact = [...state.contact, action.payload];
+      const contact: IContact = {
+        ...action.payload,
+        id: Math.random(),
+        imageUrl: randomAvatarUrlGenerator(),
+      };
+      state.contact = [...state.contact, contact];
     },
     deleteContact: (state, action: PayloadAction<number>) => {
       state.contact = state.contact.filter((e) => e.id !== action.payload);
