@@ -17,15 +17,20 @@ export interface IContact {
 
 export interface ContactState {
   contact: Array<IContact>;
+  isDialogOpen: boolean;
 }
 const initialState: ContactState = {
   contact: [],
+  isDialogOpen: false,
 };
 
 export const contactSlice = createSlice({
   name: "contact",
   initialState,
   reducers: {
+    openDialog: (state, action: PayloadAction<boolean>) => {
+      state.isDialogOpen = action.payload;
+    },
     addedContact: (state, action: PayloadAction<IContact>) => {
       state.contact = [...state.contact, action.payload];
     },

@@ -12,17 +12,17 @@ const NavBar = () => {
 
   const dispatch = useDispatch();
   const createNewContact = () => {
-    const newContact: IContact = {
-      id: Math.random(),
-      name: "Abbas k abbu Tauqeer",
-      address: "Ghr",
-      imageUrl:
-        "https://daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg",
-      phone: "8879998633",
-      type: ContactType.HOME,
-    };
+    // const newContact: IContact = {
+    //   id: Math.random(),
+    //   name: "Abbas k abbu Tauqeer",
+    //   address: "Ghr",
+    //   imageUrl:
+    //     "https://daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg",
+    //   phone: "8879998633",
+    //   type: ContactType.HOME,
+    // };
 
-    dispatch(contactActions.addedContact(newContact));
+    dispatch(contactActions.openDialog(true));
   };
   return (
     <header className="h-20 px-2 flex items-center">
