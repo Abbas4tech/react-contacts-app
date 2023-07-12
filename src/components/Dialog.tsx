@@ -36,11 +36,17 @@ const Dialog = ({
               <p className="py-4">{content}</p>
             </div>
           </div>
-          <div className={action === "none" ? "hidden" : "modal-action"}>
+          <div
+            className={
+              action === "none"
+                ? "hidden"
+                : "modal-action mx-0 flex flex-col-reverse md:flex-row gap-2 justify-center md:justify-end items-stretch"
+            }
+          >
             {action.toLowerCase() !== "close" && (
               <label
                 htmlFor="my-modal"
-                className="btn btn-ghost"
+                className="btn btn-sm md:btn-md"
                 onClick={() => onCancel?.()}
               >
                 Cancel
@@ -48,7 +54,7 @@ const Dialog = ({
             )}
             <label
               htmlFor="my-modal"
-              className={`btn cursor-pointer inline-flex items-center justify-center w-full px-4 py-2 text-base font-medium text-white ${
+              className={`btn btn-sm md:btn-md cursor-pointer inline-flex items-center justify-center w-full text-base font-medium text-white ${
                 type === "info"
                   ? "bg-cyan-600 hover:bg-cyan-700 focus:ring-cyan-500"
                   : type === "warning"
@@ -56,7 +62,7 @@ const Dialog = ({
                   : type === "success"
                   ? "bg-green-600 hover:bg-green-700 focus:ring-green-500"
                   : "bg-red-600  hover:bg-red-700 focus:ring-red-500"
-              } border border-transparent rounded-md shadow-sm focus:outline-none focus:ring-2focus:ring-offset-2 sm:ml-3 sm:w-auto sm:text-sm`}
+              } border border-transparent rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 sm:w-auto sm:text-sm mx-0`}
               onClick={() => onAction?.()}
             >
               {action}

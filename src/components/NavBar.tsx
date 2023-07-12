@@ -31,7 +31,7 @@ const NavBar = () => {
           </label>
         </div>
         <div className="flex-1">
-          <p className="btn btn-ghost normal-case text-2xl text-base-content">
+          <p className="btn btn-ghost normal-case text-lg md:text-2xl text-base-content">
             Contacts App
           </p>
         </div>
