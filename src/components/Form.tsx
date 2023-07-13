@@ -10,8 +10,8 @@ const Form = ({
 }) => {
   return (
     <section>
-      <div className=" form-control w-full">
-        <label htmlFor="name" className="label">
+      <div className="form-control w-full">
+        <label htmlFor="name" className="label text-2xl block font-semibold">
           <span className=" label-text">Name</span>
         </label>
         <input
@@ -28,8 +28,8 @@ const Form = ({
         />
       </div>
       <div className=" form-control w-full">
-        <label htmlFor="phone" className="label">
-          <span className=" label-text">Phone Number</span>
+        <label htmlFor="phone" className="label text-2xl block font-semibold">
+          <span className="label-text">Phone Number</span>
         </label>
         <input
           type="text"
@@ -45,7 +45,7 @@ const Form = ({
         />
       </div>
       <div className=" form-control w-full">
-        <label htmlFor="address" className="label">
+        <label htmlFor="address" className="label text-2xl block font-semibold">
           <span className="label-text">Address</span>
         </label>
         <input
@@ -63,7 +63,7 @@ const Form = ({
       </div>
       <section className="mt-2">
         <div className="form-control flex-row items-center gap-4">
-          <label className="label cursor-pointer">
+          <label className="label cursor-pointer text-2xl block font-semibold">
             <span className="label-text">{ContactType.HOME}</span>
           </label>
           <input
@@ -86,7 +86,7 @@ const Form = ({
           />
         </div>
         <div className="form-control flex-row items-center gap-4">
-          <label className="label cursor-pointer">
+          <label className="label cursor-pointer text-2xl block font-semibold">
             <span className="label-text">{ContactType.OFFICE}</span>
           </label>
           <input

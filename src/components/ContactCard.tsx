@@ -25,7 +25,7 @@ const ContactCard = ({
       <div role="figure" className="rounded-md flex max-w-[10rem]">
         <img loading="lazy" src={contact.imageUrl} alt={contact.name} />
       </div>
-      <div className="p-4 flex flex-col justify-between">
+      <div className="p-4 flex flex-col w-full justify-between">
         <div>
           <h2 className="font-semibold my-2 text-medium md:text-lg">
             {contact.name}
